@@ -1,7 +1,7 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import BottomTabs from './BottomTabs';
-import DetailsScreen from '../screens/details-screen';
+import DetailsScreen from '../presentation/screens/details-screen';
 import {screenOptions} from './constants';
 
 export type RootStackParamList = {

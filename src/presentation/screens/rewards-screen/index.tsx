@@ -1,15 +1,15 @@
 import React, {memo} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import {StackNavigationProp} from '@react-navigation/stack';
-import {RootStackParamList} from '../../navigation/RootStack';
+import {RootStackParamList} from '../../../navigation/RootStack';
 
 type HomeScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Home'>;
 type Props = {navigation: HomeScreenNavigationProp};
 
-const LearnScreen: React.FC<Props> = ({navigation}) => {
+const RewardsScreen: React.FC<Props> = ({navigation}) => {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Learn Screen</Text>
+      <Text style={styles.text}>Rewards Screen</Text>
     </View>
   );
 };
@@ -19,4 +19,4 @@ const styles = StyleSheet.create({
   text: {fontSize: 20, fontWeight: 'bold'},
 });
 
-export default memo(LearnScreen);
+export default memo(RewardsScreen);

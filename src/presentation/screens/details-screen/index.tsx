@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import {RouteProp} from '@react-navigation/native';
-import {RootStackParamList} from '../../navigation/RootStack';
+import {RootStackParamList} from '../../../navigation/RootStack';
 
 type DetailsScreenRouteProp = RouteProp<RootStackParamList, 'Details'>;
 type Props = {route: DetailsScreenRouteProp};

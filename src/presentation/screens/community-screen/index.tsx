@@ -1,7 +1,7 @@
 import React, {memo} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import {StackNavigationProp} from '@react-navigation/stack';
-import {RootStackParamList} from '../../navigation/RootStack';
+import {RootStackParamList} from '../../../navigation/RootStack';
 
 type HomeScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Home'>;
 type Props = {navigation: HomeScreenNavigationProp};

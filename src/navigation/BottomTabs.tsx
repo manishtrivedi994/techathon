@@ -1,9 +1,9 @@
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import HomeScreen from '../screens/home-screen';
-import LearnScreen from '../screens/learn-screen';
-import RewardsScreen from '../screens/rewards-screen';
-import CommunityScreen from '../screens/community-screen';
+import HomeScreen from '../presentation/screens/home-screen';
+import LearnScreen from '../presentation/screens/learn-screen';
+import RewardsScreen from '../presentation/screens/rewards-screen';
+import CommunityScreen from '../presentation/screens/community-screen';
 
 const BottomTab = createBottomTabNavigator();
 
