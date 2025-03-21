@@ -1,19 +1,15 @@
 import React, {memo} from 'react';
-import {View, Text, Button, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet} from 'react-native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {RootStackParamList} from '../../navigation/RootStack';
 
 type HomeScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Home'>;
 type Props = {navigation: HomeScreenNavigationProp};
 
-const HomeScreen: React.FC<Props> = ({navigation}) => {
+const LearnScreen: React.FC<Props> = ({navigation}) => {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Home Screen</Text>
-      <Button
-        title="Go to Details"
-        onPress={() => navigation.navigate('Details', {itemId: 1})}
-      />
+      <Text style={styles.text}>Learn Screen</Text>
     </View>
   );
 };
@@ -23,4 +19,4 @@ const styles = StyleSheet.create({
   text: {fontSize: 20, fontWeight: 'bold'},
 });
 
-export default memo(HomeScreen);
+export default memo(LearnScreen);
