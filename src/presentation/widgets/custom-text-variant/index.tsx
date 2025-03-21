@@ -5,6 +5,7 @@ import TYPOGRAPHY from '../../styles/typography';
 export enum TextToken {
   HEADING1_BOLD = 'heading1_bold',
   BODY_REGULAR = 'body_regular',
+  BODY_MEDIUM = 'body_medium',
 }
 
 type CustomTextProps = {
@@ -16,6 +17,7 @@ type CustomTextProps = {
 const textStyles: Record<TextToken, TextStyle> = {
   [TextToken.HEADING1_BOLD]: {fontSize: 20, fontWeight: '600'},
   [TextToken.BODY_REGULAR]: {fontSize: 14, fontWeight: '400', lineHeight: 20},
+  [TextToken.BODY_MEDIUM]: {fontSize: 16, fontWeight: '400', lineHeight: 20},
 };
 
 const CustomTextVariant: React.FC<CustomTextProps> = ({
