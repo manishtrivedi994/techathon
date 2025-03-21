@@ -10,3 +10,5 @@ export const screenOptions: StackNavigationOptions = {
   headerTransparent: true,
   headerStyle: {backgroundColor: 'transparent'},
 };
+
+export const bottomTabOption = {headerShown: false};
