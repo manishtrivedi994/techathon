@@ -23,7 +23,8 @@
     "react-native-screens": "^4.9.2",
     "react-native-svg": "^15.11.2",
     "react-native-vector-icons": "^10.2.0",
-    "react-redux": "^9.2.0"
+    "react-redux": "^9.2.0",
+    "rn-central-dls": "git+ssh://git@github.com/manishtrivedi994/rn-central-dls.git#v0.0.9"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
