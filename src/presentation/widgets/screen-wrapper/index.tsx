@@ -1,7 +1,7 @@
 import {StatusBar, View} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-import TYPOGRAPHY from '../../typography';
-import GLOBAL from '../../global';
+import TYPOGRAPHY from '../../styles/typography';
+import GLOBAL from '../../styles/global';
 import {memo} from 'react';
 import {Edges, SafeAreaView} from 'react-native-safe-area-context';
 
