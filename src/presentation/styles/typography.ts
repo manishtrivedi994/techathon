@@ -1,6 +1,10 @@
 const Color = {
   gableGreen: '#0E2324',
   codGray: '#0E0D0D',
+  logCabin: '#161616',
+  aquaMarine: '#63FCFF',
+  transparent: 'transparent',
+  rockBlue: '#9DB2CE',
 };
 
 export enum ColorOpacityHex {}
