@@ -5,9 +5,15 @@ const Color = {
   aquaMarine: '#63FCFF',
   transparent: 'transparent',
   rockBlue: '#9DB2CE',
+  white: '#FFFFFF',
+  almostBlack: '#0f0f10',
+  aztec: '#0E2021',
+  sirocco: '#717272',
 };
 
-export enum ColorOpacityHex {}
+export enum ColorOpacityHex {
+  PER_10 = '1A',
+}
 
 export const GRADIENTS = {};
 
