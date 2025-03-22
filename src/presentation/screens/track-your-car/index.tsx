@@ -12,7 +12,8 @@ import CustomTextVariant, {TextToken} from '../../widgets/custom-text-variant';
 
 const TrackYourCar = () => {
   const [speed, setSpeed] = useState(40);
-
+  const [temp, setTemp] = useState(25);
+  const [fuel, setFuel] = useState(60);
   return (
     <ScreenWrapper>
       <View style={GLOBAL.Layout.fullFlex}>
@@ -28,51 +29,45 @@ const TrackYourCar = () => {
         />
         <Separator height={24} />
         <View style={[GLOBAL.Layout.rowCentering]}>
-          <RadialSlider
-            value={speed}
-            min={0}
-            max={200}
-            onChange={setSpeed}
-            variant="radial-circle-slider"
-            unit="km/h"
-            style={styles.radialStyle}
-            thumbRadius={3}
-            sliderWidth={5}
-            step={1}
-            markerLineSize={8000}
-            unitStyle={{fontSize: 16}}
-            valueStyle={{fontSize: 16}}
-          />
-          <RadialSlider
-            value={speed}
-            min={0}
-            max={200}
-            onChange={setSpeed}
-            variant="radial-circle-slider"
-            unit="°C"
-            style={styles.radialStyle}
-            thumbRadius={3}
-            sliderWidth={5}
-            step={1}
-            markerLineSize={8000}
-            unitStyle={{fontSize: 16}}
-            valueStyle={{fontSize: 16}}
-            title=""
-            subTitle="Temp"
-          />
+          <View style={styles.radialStyle}>
+            <RadialSlider
+              value={fuel}
+              min={0}
+              max={100}
+              onChange={setFuel}
+              variant="radial-circle-slider"
+              unit="%"
+              thumbRadius={3}
+              sliderWidth={5}
+              step={1}
+              markerLineSize={500}
+              unitStyle={{fontSize: 16}}
+              valueStyle={{fontSize: 16}}
+              title=""
+              subTitle="Fuel"
+            />
+          </View>
+          <View style={styles.radialStyle}>
+            <RadialSlider
+              value={temp}
+              min={0}
+              max={50}
+              onChange={setTemp}
+              variant="radial-circle-slider"
+              unit="°C"
+              thumbRadius={3}
+              sliderWidth={5}
+              step={1}
+              markerLineSize={500}
+              unitStyle={{fontSize: 16}}
+              valueStyle={{fontSize: 16}}
+              title=""
+              subTitle="Temp"
+            />
+          </View>
         </View>
         <Separator height={24} />
-        <View
-          style={[
-            {
-              backgroundColor: 'rgba(255, 255, 255, 0.05)',
-              borderRadius: 12,
-              overflow: 'hidden',
-              paddingVertical: 12,
-              paddingHorizontal: 16,
-            },
-            styles.mh16,
-          ]}>
+        <View style={[styles.addressContainer, styles.mh16]}>
           <CustomTextVariant
             variant={TextToken.BODY_MEDIUM}
             fontColor={TYPOGRAPHY.Color.white}>
@@ -97,7 +92,16 @@ export default memo(TrackYourCar);
 const styles = StyleSheet.create({
   center: {alignSelf: 'center'},
   radialStyle: {
-    transform: [{translateX: -width * 0.05}],
+    width: '50%',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   mh16: {marginHorizontal: 16},
+  addressContainer: {
+    backgroundColor: 'rgba(255, 255, 255, 0.05)',
+    borderRadius: 12,
+    overflow: 'hidden',
+    paddingVertical: 12,
+    paddingHorizontal: 16,
+  },
 });
