@@ -5,7 +5,10 @@ import CustomText from "../custom-text";
 
 interface IWarningTooltipProps {
     variant: "warning" | "danger";
+    title: string; // Add title prop
+    subtitle: string; // Add subtitle prop
 }
+
 const toolTipVariant = {
     warning: {
         backgroundColor: "#181403",
@@ -17,19 +20,17 @@ const toolTipVariant = {
     },
 };
 
-const WarningTooltip = ({ variant }: IWarningTooltipProps) => {
-    if (!toolTipVariant[variant]) {
-        // Handle invalid variant, e.g., return null or a default view
-        return null;
-    }
+const WarningTooltip = ({ variant, title, subtitle }: IWarningTooltipProps) => {
+    // Handle invalid variant by defaulting to 'warning'
+    const selectedVariant = toolTipVariant[variant] || toolTipVariant.warning;
 
     return (
-        <View style={[styles.container, { backgroundColor: toolTipVariant[variant].backgroundColor }]}>
+        <View style={[styles.container, { backgroundColor: selectedVariant.backgroundColor }]}>
             <View style={styles.headingContainer}>
-                {toolTipVariant[variant].Icon}
-                <CustomText style={styles.textHeading}>Overspeading</CustomText>
+                {selectedVariant.Icon}
+                <CustomText style={styles.textHeading}>{title}</CustomText>
             </View>
-            <CustomText style={styles.infoText}>Practice with Cars24 Reflex Challenge – improve reaction time.</CustomText>
+            <CustomText style={styles.infoText}>{subtitle}</CustomText>
         </View>
     );
 };
@@ -38,24 +39,24 @@ export default WarningTooltip;
 
 const styles = StyleSheet.create({
     container: {
-        marginTop:12,
+        marginTop: 12,
         padding: 16,
         borderRadius: 8,
     },
     textHeading: {
-        color: '#fff',
-        fontWeight: '600',
-        fontSize: 14
+        color: "#fff",
+        fontWeight: "600",
+        fontSize: 14,
     },
     headingContainer: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        columnGap: 8
+        flexDirection: "row",
+        alignItems: "center",
+        columnGap: 8,
     },
     infoText: {
-        color: '#B5B6B6',
-        fontWeight: '400',
+        color: "#B5B6B6",
+        fontWeight: "400",
         fontSize: 12,
-        marginTop: 8
-    }
+        marginTop: 8,
+    },
 });

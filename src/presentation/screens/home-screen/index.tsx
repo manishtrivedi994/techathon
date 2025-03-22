@@ -36,7 +36,7 @@ const HomeScreen: React.FC<Props> = ({navigation}) => {
   ]);
 
   return (
-    <ScreenWrapper>
+    <ScreenWrapper> 
       <ScrollView contentContainerStyle={styles.scrollContentContainer}>
         <HomePageHeader />
         <HomePageMetricContainer />
