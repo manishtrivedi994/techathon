@@ -124,6 +124,18 @@ const WarningIcon = (props:SvgProps) => (
 
 
 
+const ChevronUp = (props: SvgProps) => (
+  <Svg width={20} height={21} fill="none" {...props}>
+    <Path
+      stroke="#fff"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={1.25}
+      d="m15 8-5 5-5-5"
+    />
+  </Svg>
+);
+
 const SvgIcons = {
   HomeIcon,
   Community,
@@ -132,7 +144,8 @@ const SvgIcons = {
   LeftBackButton,
   VerifyIcon,
   DangerIcon,
-  WarningIcon
+  WarningIcon,
+  ChevronUp,
 };
 
 export {SvgIcons};
