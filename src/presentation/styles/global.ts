@@ -6,6 +6,7 @@ const Layout = StyleSheet.create({
     flex: 1,
   },
   rowCentering: {flexDirection: 'row', alignItems: 'center'},
+  spaceBetween: {flexDirection: 'row', justifyContent: 'space-between'},
 });
 
 const CTA = {
