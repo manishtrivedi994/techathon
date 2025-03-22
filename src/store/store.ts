@@ -1,9 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
-import homePageReducer from './slices/homePageSlice';
-
+import homepageReducer from './slices/homePageSlice';
+ import learnReducer from './slices/learnSlice';
 const store = configureStore({
   reducer: {
-    homePage: homePageReducer
+    homePage: homepageReducer,
+    learn: learnReducer,
   },
 });
 
