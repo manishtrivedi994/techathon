@@ -1,22 +1,25 @@
 import React, {memo} from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, StyleSheet} from 'react-native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {RootStackParamList} from '../../../navigation/RootStack';
-import BackHeader from '../../../components/back-header';
+import ScreenWrapper from '../../widgets/screen-wrapper';
+import GLOBAL from '../../styles/global';
 
-type HomeScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Home'>;
+type HomeScreenNavigationProp = StackNavigationProp<
+  RootStackParamList,
+  'RewardsScreen'
+>;
 type Props = {navigation: HomeScreenNavigationProp};
 
 const RewardsScreen: React.FC<Props> = ({navigation}) => {
   return (
-    <View style={styles.container}>
-      {/* <BackHeader navigation={navigation} headerText='Rewards'/> */}
-    </View>
+    <ScreenWrapper>
+      <View style={GLOBAL.Layout.fullFlex}></View>
+    </ScreenWrapper>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {flex: 1, alignItems: 'center', justifyContent: 'center'},
   text: {fontSize: 20, fontWeight: 'bold'},
 });
 
