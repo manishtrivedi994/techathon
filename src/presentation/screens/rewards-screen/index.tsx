@@ -1,7 +1,9 @@
 import React, {memo} from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet } from 'react-native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {RootStackParamList} from '../../../navigation/RootStack';
+import CameraScreen from '../../../components/qr-scanner';
+import BackHeader from '../../../components/back-header';
 
 type HomeScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Home'>;
 type Props = {navigation: HomeScreenNavigationProp};
@@ -9,7 +11,8 @@ type Props = {navigation: HomeScreenNavigationProp};
 const RewardsScreen: React.FC<Props> = ({navigation}) => {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Rewards Screen</Text>
+      {/* <BackHeader navigation={navigation} headerText='Rewards'/> */}
+      <CameraScreen />
     </View>
   );
 };
