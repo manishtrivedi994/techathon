@@ -1,25 +1,45 @@
 import React from "react";
-import { StyleSheet, View, FlatList } from "react-native";
+import { StyleSheet, View, FlatList, Dimensions } from "react-native";
 import CustomText from "../../presentation/widgets/custom-text";
 import YoutubeTemplate from "../youtube-template";
 
-const LearnYoutubeSection = () => {
-    const youtubeData = Array(6).fill(null); // Create an array with 6 empty elements
+interface VideoItem {
+    thumbnail: string;
+    url: string;
+    title: string;
+    views: string;
+}
 
-    const renderYoutubeTemplate = ({ item }:any) => {
-        return <YoutubeTemplate />;
+interface LearnYoutubeSectionProps {
+    watchAndLearnSection: {
+        title: string;
+        subtitle: string;
+        videos: VideoItem[];
+    };
+}
+
+const LearnYoutubeSection: React.FC<LearnYoutubeSectionProps> = ({ watchAndLearnSection }) => {
+    const { title, subtitle, videos } = watchAndLearnSection;
+
+    const renderYoutubeTemplate = ({ item }: { item: VideoItem }) => {
+        return (
+            <YoutubeTemplate
+                thumbnail={item.thumbnail}
+                url={item.url}
+                title={item.title}
+                views={item.views}
+            />
+        );
     };
 
     return (
         <View style={styles.mainContainer}>
             <View style={styles.container}>
-                <CustomText style={styles.textHeader}>Learn From Youtube</CustomText>
-                <CustomText style={styles.metaText}>
-                    These short videos will help you understand what went wrong and how to fix it.
-                </CustomText>
+                <CustomText style={styles.textHeader}>{title}</CustomText>
+                <CustomText style={styles.metaText}>{subtitle}</CustomText>
             </View>
             <FlatList
-                data={youtubeData}
+                data={videos}
                 renderItem={renderYoutubeTemplate}
                 keyExtractor={(item, index) => index.toString()}
                 horizontal={true}
@@ -48,15 +68,15 @@ const styles = StyleSheet.create({
         marginTop: 8,
     },
     flatList: {
-        marginTop: 16, // Adjust spacing between text and FlatList
+        marginTop: 16,
     },
     flatListContent: {
-        paddingHorizontal: 16, // Add padding for horizontal scroll
-        gap: 17, // add gap between items
+        paddingHorizontal: 16,
+        gap: 17,
     },
     mainContainer: {
-        paddingBottom:100
-    }
+        paddingBottom: 100,
+    },
 });
 
 export default LearnYoutubeSection;

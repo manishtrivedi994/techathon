@@ -23,13 +23,16 @@ import {
   fetchTimeStampReviewPending,
   fetchTimeStampReviewRejected,
 } from '../../../store/slices/homePageSlice';
+import {useHomeScreen} from './hooks/useHomeScreen';
 
 type HomeScreenNavigationProp = StackNavigationProp<RootStackParamList, 'MainTabs'>;
 type Props = { navigation: HomeScreenNavigationProp };
 
 const CRETA_BLUE = require('./assets/creta-blue.png');
 
-const HomeScreen: React.FC<Props> = ({ navigation }) => {
+const HomeScreen: React.FC<Props> = ({navigation}) => {
+  const {_onLiveTrack} = useHomeScreen();
+
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState(null);
   const [items, setItems] = useState([
@@ -84,7 +87,7 @@ const HomeScreen: React.FC<Props> = ({ navigation }) => {
   console.log('getting overall review', isLoading);
 
   return (
-    <ScreenWrapper>
+    <ScreenWrapper> 
       <ScrollView contentContainerStyle={styles.scrollContentContainer}>
         <HomePageHeader />
         <HomePageMetricContainer />
@@ -98,7 +101,7 @@ const HomeScreen: React.FC<Props> = ({ navigation }) => {
               </CustomTextVariant>
             </View>
             <Separator height={8} />
-            <CButton onClick={() => {}}>
+            <CButton onClick={_onLiveTrack}>
               <CustomTextVariant variant={TextToken.BODY_REGULAR} fontColor={TYPOGRAPHY.Color.aquaMarine}>
                 {'Live track car now'}
               </CustomTextVariant>
