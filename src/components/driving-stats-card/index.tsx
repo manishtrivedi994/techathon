@@ -1,7 +1,9 @@
-import React from 'react';
-import { View, StyleSheet, TouchableOpacity, Dimensions } from 'react-native';
-import { ProgressChart } from 'react-native-chart-kit';
+import React, {useCallback} from 'react';
+import {View, StyleSheet, Dimensions} from 'react-native';
+import {ProgressChart} from 'react-native-chart-kit';
 import CustomText from '../../presentation/widgets/custom-text';
+import CButton from '../../presentation/widgets/cButton';
+import {cPush} from '../../navigation/navUtil';
 
 // Define types for the props
 interface StatItemProps {
@@ -21,24 +23,23 @@ interface DrivingStatsCardProps {
   };
 }
 
-// Reusable Stat Item Component
-const StatItem: React.FC<StatItemProps> = React.memo(({ value, label, highlight = false }) => (
-  <View style={styles.statItem}>
-    <CustomText
-      color={highlight ? '#FF6E6E' : '#fff'}
-      fontSize={20}
-      fontWeight="300"
-    >
-      {value}
-    </CustomText>
-    <CustomText color="#ccc" fontSize={12} fontWeight="500">
-      {label}
-    </CustomText>
-  </View>
-));
+const StatItem: React.FC<StatItemProps> = React.memo(
+  ({value, label, highlight = false}) => (
+    <View style={styles.statItem}>
+      <CustomText
+        color={highlight ? '#FF6E6E' : '#fff'}
+        fontSize={20}
+        fontWeight="300">
+        {value}
+      </CustomText>
+      <CustomText color="#ccc" fontSize={12} fontWeight="500">
+        {label}
+      </CustomText>
+    </View>
+  ),
+);
 
-const DrivingStatsCard: React.FC<DrivingStatsCardProps> = ({ statsData }) => {
-  // Provide default values if statsData is undefined
+const DrivingStatsCard: React.FC<DrivingStatsCardProps> = ({statsData}) => {
   const {
     totalTrips = 7,
     score = 2.8,
@@ -50,7 +51,7 @@ const DrivingStatsCard: React.FC<DrivingStatsCardProps> = ({ statsData }) => {
 
   const progressChartData = {
     labels: ['Score'],
-    data: [score / 5], // Normalized score (0 to 1)
+    data: [score / 5],
   };
 
   const chartConfig = {
@@ -60,8 +61,12 @@ const DrivingStatsCard: React.FC<DrivingStatsCardProps> = ({ statsData }) => {
     strokeWidth: 16,
     barPercentage: 1,
     useShadowColorFromDataset: false,
-    propsForBackgroundLines: { strokeWidth: 0 },
+    propsForBackgroundLines: {strokeWidth: 0},
   };
+
+  const _onViewAllTrips = useCallback(() => {
+    cPush('AllTrips', {});
+  }, []);
 
   return (
     <View style={styles.container}>
@@ -109,11 +114,11 @@ const DrivingStatsCard: React.FC<DrivingStatsCardProps> = ({ statsData }) => {
               total trips
             </CustomText>
           </View>
-          <TouchableOpacity>
+          <CButton onClick={_onViewAllTrips}>
             <CustomText color="#63FCFF" fontSize={16} fontWeight="500">
               View all trips
             </CustomText>
-          </TouchableOpacity>
+          </CButton>
         </View>
       </View>
     </View>
@@ -121,14 +126,14 @@ const DrivingStatsCard: React.FC<DrivingStatsCardProps> = ({ statsData }) => {
 };
 
 // Styles
-const { width: SCREEN_WIDTH } = Dimensions.get('window');
+const {width: SCREEN_WIDTH} = Dimensions.get('window');
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 20
+    marginTop: 20,
   },
   card: {
     // backgroundColor: '#0A0F0A',
@@ -137,7 +142,7 @@ const styles = StyleSheet.create({
     padding: 16,
     width: SCREEN_WIDTH * 0.9,
     shadowColor: '#000',
-    shadowOffset: { width: 0, height: 4 },
+    shadowOffset: {width: 0, height: 4},
     shadowOpacity: 0.3,
     shadowRadius: 8,
     elevation: 5,
@@ -177,7 +182,7 @@ const styles = StyleSheet.create({
   },
   totalTripsContainer: {
     flexDirection: 'row',
-    alignItems: 'baseline'
+    alignItems: 'baseline',
   },
 });
 

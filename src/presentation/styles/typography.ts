@@ -9,6 +9,8 @@ const Color = {
   almostBlack: '#0f0f10',
   aztec: '#0E2021',
   sirocco: '#717272',
+  fireFly: '#103131',
+  blackForest: '#060F0D',
 };
 
 export enum ColorOpacityHex {
