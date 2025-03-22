@@ -1,7 +1,7 @@
-import React, { memo, useState } from 'react';
-import { StyleSheet, ScrollView } from 'react-native';
-import { StackNavigationProp } from '@react-navigation/stack';
-import { RootStackParamList } from '../../../navigation/RootStack';
+import React, {memo, useState} from 'react';
+import {StyleSheet, ScrollView} from 'react-native';
+import {StackNavigationProp} from '@react-navigation/stack';
+import {RootStackParamList} from '../../../navigation/RootStack';
 import {View, Image} from 'react-native';
 import ScreenWrapper from '../../widgets/screen-wrapper';
 import HomePageHeader from '../../../components/homepage-header';
@@ -14,6 +14,7 @@ import TYPOGRAPHY from '../../styles/typography';
 import CButton from '../../widgets/cButton';
 import DropDownPicker from 'react-native-dropdown-picker';
 import {SvgIcons} from '../../icons/svgs/SvgIcons';
+import {useHomeScreen} from './hooks/useHomeScreen';
 
 type HomeScreenNavigationProp = StackNavigationProp<
   RootStackParamList,
@@ -24,6 +25,8 @@ type Props = {navigation: HomeScreenNavigationProp};
 const CRETA_BLUE = require('./assets/creta-blue.png');
 
 const HomeScreen: React.FC<Props> = ({navigation}) => {
+  const {_onLiveTrack} = useHomeScreen();
+
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState(null);
   const [items, setItems] = useState([
@@ -53,7 +56,7 @@ const HomeScreen: React.FC<Props> = ({navigation}) => {
               </CustomTextVariant>
             </View>
             <Separator height={8} />
-            <CButton onClick={() => {}}>
+            <CButton onClick={_onLiveTrack}>
               <CustomTextVariant
                 variant={TextToken.BODY_REGULAR}
                 fontColor={TYPOGRAPHY.Color.aquaMarine}>
@@ -103,8 +106,7 @@ const HomeScreen: React.FC<Props> = ({navigation}) => {
           </View>
         </View>
         <DrivingStatsCard />
-        
-        
+
         {/* <LiveTrackingContainer /> */}
       </ScrollView>
     </ScreenWrapper>
@@ -141,7 +143,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 16,
     alignItems: 'center',
     marginBottom: 20,
-    marginTop: 32
+    marginTop: 32,
   },
   mr4: {marginRight: 4},
   dropdownStyle: {
