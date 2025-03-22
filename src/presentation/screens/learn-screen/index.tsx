@@ -1,27 +1,39 @@
-import React, { memo, useEffect } from 'react';
-import { View, Text, StyleSheet, ScrollView, ActivityIndicator } from 'react-native';
-import { StackNavigationProp } from '@react-navigation/stack';
-import { RootStackParamList } from '../../../navigation/RootStack';
+import React, {memo, useEffect} from 'react';
+import {
+  View,
+  Text,
+  StyleSheet,
+  ScrollView,
+  ActivityIndicator,
+} from 'react-native';
+import {StackNavigationProp} from '@react-navigation/stack';
+import {RootStackParamList} from '../../../navigation/RootStack';
 import ScreenWrapper from '../../widgets/screen-wrapper';
 import BackHeader from '../../../components/back-header';
 import CustomText from '../../widgets/custom-text';
 import ImprovementArea from '../../../components/improvement-area';
 import LearnRecommendation from '../../../components/learn-recommendation';
 import LearnYoutubeSection from '../../../components/learn-youtube-section';
-import { useAppDispatch } from '../../../utils/hooks/useAppDispatch';
-import { useAppSelector } from '../../../utils/hooks/useAppSelector';
-import { RootState } from '../../../store/store';
-import { setError, setLessons, setLoading } from '../../../store/slices/learnSlice';
+import {useAppDispatch} from '../../../utils/hooks/useAppDispatch';
+import {useAppSelector} from '../../../utils/hooks/useAppSelector';
+import {RootState} from '../../../store/store';
+import {
+  setError,
+  setLessons,
+  setLoading,
+} from '../../../store/slices/learnSlice';
 
 type HomeScreenNavigationProp = StackNavigationProp<
   RootStackParamList,
   'MainTabs'
 >;
-type Props = { navigation: HomeScreenNavigationProp };
+type Props = {navigation: HomeScreenNavigationProp};
 
-const LearnScreen: React.FC<Props> = ({ navigation }) => {
+const LearnScreen: React.FC<Props> = ({navigation}) => {
   const dispatch = useAppDispatch();
-  const { loading, lessons, error } = useAppSelector((state: RootState) => state.learn);
+  const {loading, lessons, error} = useAppSelector(
+    (state: RootState) => state.learn ?? {},
+  );
 
   // Ensure these properties are defined
   const improvementSection = lessons?.improvementSection || {};
@@ -33,7 +45,9 @@ const LearnScreen: React.FC<Props> = ({ navigation }) => {
       dispatch(setLoading(true));
       try {
         // Simulate an API call to fetch lessons
-        const response = await fetch('http://192.168.27.108:8080/v1/learning/improvement-areas?userId=123');
+        const response = await fetch(
+          'http://192.168.27.108:8080/v1/learning/improvement-areas?userId=123',
+        );
         const result = await response.json();
         dispatch(setLessons(result));
       } catch (err) {

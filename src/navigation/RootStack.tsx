@@ -14,6 +14,7 @@ export type RootStackParamList = {
   Login: undefined;
   TrackYourCar: undefined;
   AllTrips: undefined;
+  RewardsScreen: undefined;
 };
 
 const Stack = createStackNavigator<RootStackParamList>();
