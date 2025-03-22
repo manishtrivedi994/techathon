@@ -16,7 +16,7 @@ const LearnScreen: React.FC<Props> = ({ navigation }) => {
   return (
     <ScreenWrapper>
       <ScrollView showsVerticalScrollIndicator={false}>
-        <BackHeader />
+        <BackHeader navigation={navigation} headerText={'Learn'}/>
         <ImprovementArea />
         <LearnRecommendation />
         <LearnYoutubeSection />
