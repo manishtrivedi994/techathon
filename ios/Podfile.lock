@@ -1306,6 +1306,71 @@ PODS:
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
     - Yoga
+  - react-native-video (6.11.0):
+    - DoubleConversion
+    - glog
+    - hermes-engine
+    - RCT-Folly (= 2024.11.18.00)
+    - RCTRequired
+    - RCTTypeSafety
+    - React-Core
+    - React-debug
+    - React-Fabric
+    - React-featureflags
+    - React-graphics
+    - React-ImageManager
+    - react-native-video/Video (= 6.11.0)
+    - React-NativeModulesApple
+    - React-RCTFabric
+    - React-rendererdebug
+    - React-utils
+    - ReactCodegen
+    - ReactCommon/turbomodule/bridging
+    - ReactCommon/turbomodule/core
+    - Yoga
+  - react-native-video/Fabric (6.11.0):
+    - DoubleConversion
+    - glog
+    - hermes-engine
+    - RCT-Folly (= 2024.11.18.00)
+    - RCTRequired
+    - RCTTypeSafety
+    - React-Core
+    - React-debug
+    - React-Fabric
+    - React-featureflags
+    - React-graphics
+    - React-ImageManager
+    - React-NativeModulesApple
+    - React-RCTFabric
+    - React-rendererdebug
+    - React-utils
+    - ReactCodegen
+    - ReactCommon/turbomodule/bridging
+    - ReactCommon/turbomodule/core
+    - Yoga
+  - react-native-video/Video (6.11.0):
+    - DoubleConversion
+    - glog
+    - hermes-engine
+    - RCT-Folly (= 2024.11.18.00)
+    - RCTRequired
+    - RCTTypeSafety
+    - React-Core
+    - React-debug
+    - React-Fabric
+    - React-featureflags
+    - React-graphics
+    - React-ImageManager
+    - react-native-video/Fabric
+    - React-NativeModulesApple
+    - React-RCTFabric
+    - React-rendererdebug
+    - React-utils
+    - ReactCodegen
+    - ReactCommon/turbomodule/bridging
+    - ReactCommon/turbomodule/core
+    - Yoga
   - React-NativeModulesApple (0.78.1):
     - glog
     - hermes-engine
@@ -1910,6 +1975,7 @@ DEPENDENCIES:
   - React-Mapbuffer (from `../node_modules/react-native/ReactCommon`)
   - React-microtasksnativemodule (from `../node_modules/react-native/ReactCommon/react/nativemodule/microtasks`)
   - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
+  - react-native-video (from `../node_modules/react-native-video`)
   - React-NativeModulesApple (from `../node_modules/react-native/ReactCommon/react/nativemodule/core/platform/ios`)
   - React-perflogger (from `../node_modules/react-native/ReactCommon/reactperflogger`)
   - React-performancetimeline (from `../node_modules/react-native/ReactCommon/react/performance/timeline`)
@@ -2031,6 +2097,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/react/nativemodule/microtasks"
   react-native-safe-area-context:
     :path: "../node_modules/react-native-safe-area-context"
+  react-native-video:
+    :path: "../node_modules/react-native-video"
   React-NativeModulesApple:
     :path: "../node_modules/react-native/ReactCommon/react/nativemodule/core/platform/ios"
   React-perflogger:
@@ -2129,24 +2197,25 @@ SPEC CHECKSUMS:
   React-FabricComponents: 5f4acebfc858863aa8def40aac5255076bc141b0
   React-FabricImage: 736bf67d1c23985aed2e3c5a09546322501a932e
   React-featureflags: 04a42c3099a4a12fdf34c42b84512b96caaf9d41
-  React-featureflagsnativemodule: 9cce7cfeb11d05545e1414d5936bc2f7d5174099
-  React-graphics: 7dded734538450bc7f7087f7ea212b43ec423900
-  React-hermes: d61c104904d2c5a2cb9390267085c17f284f149e
-  React-idlecallbacksnativemodule: 1f7c073261991e2a729a2512e447402f968894b0
-  React-ImageManager: d37da23b068b037bdf7349c32023883093206b8b
-  React-jserrorhandler: bd0c3efad40d1a0c6791ceeac275fa3076935ffb
-  React-jsi: 183f5f851fee72238c1ac807bbca39f9930d22cf
-  React-jsiexecutor: afee0663c97f2d32188e1b91fe16fc09377b5ce7
-  React-jsinspector: 1fa4b8eb0099e834e501f84d9f3f2bc55ab879f7
-  React-jsinspectortracing: 44669474b19045a41f3e5370fe1e1f09a4fcc159
-  React-jsitracing: 43d3a40ff903f5e036517577992ea15a63e8a257
-  React-logger: 88de26ac2b4ae3ebf55108f4be299f967151d0ec
-  React-Mapbuffer: b6619632c9800e300a9dcfb5139009416cec6392
-  React-microtasksnativemodule: e99c1d7791f5e8d5be370b78e02433e64d2391d8
-  react-native-safe-area-context: 286b3e7b5589795bb85ffc38faf4c0706c48a092
-  React-NativeModulesApple: fb48894de492e6f9a73e53d8f92a6a792e40666c
-  React-perflogger: e1c8cc9ba55dfabb670966d73622eabcfa0ac29e
-  React-performancetimeline: 6f8984a509036b7adc382b8d15193733f88ee749
+  React-featureflagsnativemodule: 32a69405f053b25640cac519dbb24c5e79185e1b
+  React-graphics: 49bacefc908533e59e1b65ac479bd00c43dad2d0
+  React-hermes: 809429058aa7610601c552556a132df2f446fe0c
+  React-idlecallbacksnativemodule: d6c574b38b6497189dcdb1c4953c049ed93a67d1
+  React-ImageManager: 9cb4d8d83f0d43591f06bd07b1d845144cb9bc72
+  React-jserrorhandler: 5d010f2c65066e682b5973ea0e39bfc7bfdf46fe
+  React-jsi: 0be2628a04b7ab6b60565ccc0e11069c6a3e5a91
+  React-jsiexecutor: cb431019ea945006b0ad62ba34dba8475926eda9
+  React-jsinspector: 094b9197c4aa166c565273b5b80604c3c25f262a
+  React-jsinspectortracing: 5498aaae966956939808ecd72635a6937c7e724d
+  React-jsitracing: 9d28564942b168004da194785024ddc730caf0dc
+  React-logger: 74ddb793d36b48bba176328c7af75e5e656fd405
+  React-Mapbuffer: 39e87693178fd6483bb5ca8b851fae362d49409a
+  React-microtasksnativemodule: b740ebae7fad70aa78bc24cc0dfc15ac9637b6eb
+  react-native-safe-area-context: 0f14bce545abcdfbff79ce2e3c78c109f0be283e
+  react-native-video: ebad7ae64c4d5302fd43ac76821d180adf4febd6
+  React-NativeModulesApple: af0571ac115d09c9a669ed45ce6a4ca960598a2d
+  React-perflogger: 26d07766b033f84559bd520e949453dba8bf1cd8
+  React-performancetimeline: 0f3e0b6e2152951257bd8c90f95d527cf4316fa8
   React-RCTActionSheet: 9488eac05a056a124f500beaecf0a5bd722b2916
   React-RCTAnimation: 25cab7e810ceffcbecaf80d481e8da88458fe16d
   React-RCTAppDelegate: bc7081822fadf0ef7b0103ad7a1906d2872b1f4e

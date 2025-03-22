@@ -1,5 +1,8 @@
 import React, {useEffect} from 'react';
-import {View, Text, StyleSheet, ActivityIndicator} from 'react-native';
+import {View, StyleSheet} from 'react-native';
+import Video from 'react-native-video';
+
+const video = require('./assets/splash.mp4');
 
 const SplashScreen = ({onFinish}: {onFinish: () => void}) => {
   useEffect(() => {
@@ -12,9 +15,7 @@ const SplashScreen = ({onFinish}: {onFinish: () => void}) => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.logo}>Techathon</Text>
-      <Text style={styles.subtext}>{'Loading your view'}</Text>
-      <ActivityIndicator size="large" color="#fff" />
+      <Video source={video} style={styles.backgroundVideo} />
     </View>
   );
 };
@@ -26,17 +27,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#000',
   },
-  logo: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    color: '#fff',
-    marginBottom: 4,
-  },
-  subtext: {
-    fontSize: 16,
-    fontWeight: 'medium',
-    color: '#fff',
-    marginBottom: 20,
+  backgroundVideo: {
+    width: '100%',
+    height: '100%',
   },
 });
 

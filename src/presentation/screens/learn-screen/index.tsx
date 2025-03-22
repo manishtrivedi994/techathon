@@ -70,9 +70,11 @@ const LearnScreen: React.FC<Props> = ({navigation}) => {
 
   if (error) {
     return (
-      <View style={styles.errorContainer}>
-        <Text style={styles.errorText}>{error}</Text>
-      </View>
+      <ScreenWrapper>
+        <View style={styles.errorContainer}>
+          <Text style={styles.errorText}>{error}</Text>
+        </View>
+      </ScreenWrapper>
     );
   }
 
