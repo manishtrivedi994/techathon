@@ -132,6 +132,15 @@ const Clock = (props: SvgProps) => (
   </Svg>
 );
 
+const StarIcon = (props: SvgProps) => (
+  <Svg width={14} height={14} fill="none" {...props}>
+    <Path
+      fill="#FFD60A"
+      d="M14 7a.988.988 0 0 1-.656.938L9.379 9.38l-1.441 3.964a1 1 0 0 1-1.875 0L4.62 9.379.656 7.938a1 1 0 0 1 0-1.875L4.621 4.62 6.063.656a1 1 0 0 1 1.875 0L9.38 4.621l3.964 1.442A.987.987 0 0 1 14 7Z"
+    />
+  </Svg>
+);
+
 const SvgIcons = {
   HomeIcon,
   Community,
@@ -144,6 +153,7 @@ const SvgIcons = {
   ChevronUp,
   Calendar,
   Clock,
+  StarIcon,
 };
 
 export {SvgIcons};

@@ -11,9 +11,11 @@ const EDGES: Edges = ['top', 'bottom'];
 const ScreenWrapper = ({
   children,
   containerStyle,
+  colors,
 }: {
   children: React.ReactNode;
   containerStyle?: ViewStyleType;
+  colors?: [string, string];
 }) => {
   return (
     <>
@@ -23,7 +25,9 @@ const ScreenWrapper = ({
         barStyle="light-content"
       />
       <LinearGradient
-        colors={[TYPOGRAPHY.Color.gableGreen, TYPOGRAPHY.Color.codGray]}
+        colors={
+          colors ?? [TYPOGRAPHY.Color.gableGreen, TYPOGRAPHY.Color.codGray]
+        }
         style={[GLOBAL.Layout.fullFlex, containerStyle]}>
         <SafeAreaView style={GLOBAL.Layout.fullFlex} edges={EDGES}>
           <View style={GLOBAL.Layout.fullFlex}>{children}</View>
