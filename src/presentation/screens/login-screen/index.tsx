@@ -1,4 +1,4 @@
-import {memo, useState} from 'react';
+import {memo, useCallback, useState} from 'react';
 import {StyleSheet, Text, TextInput, View} from 'react-native';
 import ScreenWrapper from '../../widgets/screen-wrapper';
 import {Separator} from '../../widgets/separator';
@@ -14,13 +14,30 @@ import {debounce} from '../../../utils/codeUtils';
 import {IS_IOS} from '../../../utitlites/display';
 import GLOBAL from '../../styles/global';
 import CButton from '../../widgets/cButton';
+import {useDispatch} from 'react-redux';
+import {login} from '../../../store/slices/authSlice';
+import {cStackReset} from '../../../navigation/navUtil';
 
 type Props = {};
 
 const LoginScreen = (props: Props) => {
   const [regNo, setRegNo] = useState({value: '', error: ''});
   const [phoneNum, setPhoneNum] = useState({value: '', error: ''});
-  const [showOtp, setShowOtp] = useState(true);
+  const [showOtp, setShowOtp] = useState(false);
+  const dispatch = useDispatch();
+
+  const onProceed = useCallback(() => {
+    if (phoneNum?.value?.length && regNo?.value?.length) {
+      setShowOtp(true);
+    }
+  }, [phoneNum, regNo, setShowOtp]);
+
+  const _onLogin = useCallback(() => {
+    const mockUser = {id: 1, name: 'John Doe', email: 'john@example.com'};
+    dispatch(login(mockUser));
+    cStackReset('MainTabs', {});
+  }, []);
+
   return (
     <ScreenWrapper>
       {showOtp ? (
@@ -45,7 +62,11 @@ const LoginScreen = (props: Props) => {
               variant={TextToken.BODY_REGULAR}>
               {` +91-9938736718`}
             </CustomTextVariant>
-            <CButton onClick={() => {}} style={styles.ml8}>
+            <CButton
+              onClick={() => {
+                setShowOtp(false);
+              }}
+              style={styles.ml8}>
               <CustomTextVariant
                 fontColor={TYPOGRAPHY.Color.aquaMarine}
                 variant={TextToken.BODY_REGULAR}>
@@ -79,7 +100,7 @@ const LoginScreen = (props: Props) => {
           )}
           <Separator height={24} />
           <View style={styles.ph16}>
-            <Button title="Proceed" onPress={() => {}} size="LARGE" />
+            <Button title="Proceed" onPress={_onLogin} size="LARGE" />
           </View>
         </View>
       ) : (
@@ -118,7 +139,7 @@ const LoginScreen = (props: Props) => {
             hint={phoneNum?.error}
           />
           <Separator height={24} />
-          <Button title="Proceed" onPress={() => {}} size="LARGE" />
+          <Button title="Proceed" onPress={onProceed} size="LARGE" />
         </View>
       )}
     </ScreenWrapper>
