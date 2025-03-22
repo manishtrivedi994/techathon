@@ -32,3 +32,11 @@ export function debounce<T extends (...args: any[]) => any>(
 
   return debounced;
 }
+
+export const formatTime = (timestamp: number) => {
+  return new Date(timestamp).toLocaleTimeString([], {
+    hour: '2-digit',
+    minute: '2-digit',
+    hour12: true,
+  });
+};
