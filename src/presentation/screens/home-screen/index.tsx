@@ -37,7 +37,6 @@ const HomeScreen: React.FC<Props> = ({navigation}) => {
       <ScrollView contentContainerStyle={styles.scrollContentContainer}>
         <HomePageHeader />
         <HomePageMetricContainer />
-        <DrivingStatsCard />
         <Separator height={32} />
         <View style={styles.liveTrackContainer}>
           <Image
@@ -103,6 +102,9 @@ const HomeScreen: React.FC<Props> = ({navigation}) => {
             )}
           </View>
         </View>
+        <DrivingStatsCard />
+        
+        
         {/* <LiveTrackingContainer /> */}
       </ScrollView>
     </ScreenWrapper>
@@ -112,7 +114,7 @@ const HomeScreen: React.FC<Props> = ({navigation}) => {
 const styles = StyleSheet.create({
   text: {fontSize: 20, fontWeight: 'bold'},
   scrollContentContainer: {
-    paddingBottom: 80,
+    paddingBottom: 120,
   },
   ph16: {paddingHorizontal: 16},
   liveTrackContainer: {
@@ -138,6 +140,8 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     marginHorizontal: 16,
     alignItems: 'center',
+    marginBottom: 20,
+    marginTop: 32
   },
   mr4: {marginRight: 4},
   dropdownStyle: {

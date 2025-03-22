@@ -128,10 +128,11 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#000',
+    marginTop: 20
   },
   card: {
-    backgroundColor: '#0A0F0A',
+    // backgroundColor: '#0A0F0A',
+    backgroundColor: '#060F0D',
     borderRadius: 20,
     padding: 16,
     width: SCREEN_WIDTH * 0.9,
@@ -176,7 +177,7 @@ const styles = StyleSheet.create({
   },
   totalTripsContainer: {
     flexDirection: 'row',
-    alignItems: 'baseline',
+    alignItems: 'baseline'
   },
 });
 
