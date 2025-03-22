@@ -1,5 +1,5 @@
 import React, {memo} from 'react';
-import {Text, TextStyle} from 'react-native';
+import {Text, TextProps, TextStyle} from 'react-native';
 import TYPOGRAPHY from '../../styles/typography';
 
 export enum TextToken {
@@ -8,11 +8,11 @@ export enum TextToken {
   BODY_MEDIUM = 'body_medium',
 }
 
-type CustomTextProps = {
+interface CustomTextProps extends TextProps {
   variant?: TextToken;
   fontColor?: string;
   children: React.ReactNode;
-};
+}
 
 const textStyles: Record<TextToken, TextStyle> = {
   [TextToken.HEADING1_BOLD]: {fontSize: 20, fontWeight: '600'},
@@ -24,9 +24,12 @@ const CustomTextVariant: React.FC<CustomTextProps> = ({
   variant = TextToken.HEADING1_BOLD,
   fontColor = TYPOGRAPHY.Color.white,
   children,
+  ...rest
 }) => {
   return (
-    <Text style={[textStyles[variant], {color: fontColor}]}>{children}</Text>
+    <Text style={[textStyles[variant], {color: fontColor}]} {...rest}>
+      {children}
+    </Text>
   );
 };
 

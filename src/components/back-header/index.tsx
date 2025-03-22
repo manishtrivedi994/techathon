@@ -1,27 +1,25 @@
-import React from 'react';
-import { StyleSheet, View, TouchableOpacity } from 'react-native';
-import { SvgIcons } from '../../presentation/icons/svgs/SvgIcons';
+import React, {useCallback} from 'react';
+import {StyleSheet, View, TouchableOpacity} from 'react-native';
+import {SvgIcons} from '../../presentation/icons/svgs/SvgIcons';
 import CustomText from '../../presentation/widgets/custom-text';
-import { StackNavigationProp } from '@react-navigation/stack'; // Import navigation type
+import {cPop} from '../../navigation/navUtil';
 
-// Define the type for the navigation prop
 type RootStackParamList = {
-  // Define your screen names here
   Home: undefined;
 };
 
 type BackHeaderProps = {
-  navigation: StackNavigationProp<RootStackParamList>; // Navigation prop type
-  headerText: string; // Dynamic text prop type
+  headerText: string;
 };
 
-const BackHeader: React.FC<BackHeaderProps> = ({ navigation, headerText }) => {
+const BackHeader: React.FC<BackHeaderProps> = ({headerText}) => {
+  const onBack = useCallback(() => {
+    cPop();
+  }, []);
+
   return (
     <View style={styles.container}>
-      <TouchableOpacity
-        style={styles.buttonContainer}
-        onPress={() => navigation.goBack()}
-      >
+      <TouchableOpacity style={styles.buttonContainer} onPress={onBack}>
         <SvgIcons.LeftBackButton />
         <CustomText style={styles.text}>{headerText}</CustomText>
       </TouchableOpacity>
