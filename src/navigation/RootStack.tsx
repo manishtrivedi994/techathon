@@ -6,12 +6,14 @@ import {screenOptions} from './constants';
 import LoginScreen from '../presentation/screens/login-screen';
 import {useIsLoggedIn} from '../utils/hooks/useIsLoggedIn';
 import TrackYourCar from '../presentation/screens/track-your-car';
+import AllTrips from '../presentation/screens/all-trips';
 
 export type RootStackParamList = {
   MainTabs: undefined;
   Details: {itemId: number};
   Login: undefined;
   TrackYourCar: undefined;
+  AllTrips: undefined;
 };
 
 const Stack = createStackNavigator<RootStackParamList>();
@@ -26,6 +28,7 @@ const RootStack = () => {
       <Stack.Screen name="Details" component={DetailsScreen} />
       <Stack.Screen name="Login" component={LoginScreen} />
       <Stack.Screen name="TrackYourCar" component={TrackYourCar} />
+      <Stack.Screen name="AllTrips" component={AllTrips} />
     </Stack.Navigator>
   );
 };
