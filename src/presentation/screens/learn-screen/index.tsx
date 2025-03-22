@@ -46,7 +46,7 @@ const LearnScreen: React.FC<Props> = ({navigation}) => {
       try {
         // Simulate an API call to fetch lessons
         const response = await fetch(
-          'http://192.168.27.108:8080/v1/learning/improvement-areas?userId=123',
+          'https://api-523185332328.asia-south1.run.app/v1/learning/improvement-areas?userId=123',
         );
         const result = await response.json();
         dispatch(setLessons(result));
