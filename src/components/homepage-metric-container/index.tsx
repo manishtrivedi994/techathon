@@ -6,18 +6,21 @@ import CustomizedProgressBars from "../../presentation/widgets/progress-bar";
 
 const screenWidth = Dimensions.get("window").width;
 
-const BarMetric = () => {
+const BarMetric = ({ data }) => {
   return (
     <View style={[styles.barContainer, { width: screenWidth }]}>
+      {/* Title */}
       <CustomText color={"#fff"} fontSize={12} fontWeight="500">
-        Turn efficiency
+        {data.title}
       </CustomText>
+
+      {/* Progress Bar and Value */}
       <View style={styles.bar}>
-        <View style={{ width: screenWidth * 0.5 }}>
+        <View style={styles.progressBarContainer}>
           <CustomizedProgressBars value={70} />
         </View>
         <CustomText color={"#fff"} fontSize={12} fontWeight="500">
-          4.2
+          {data.value}
         </CustomText>
       </View>
     </View>
@@ -44,6 +47,14 @@ const HomePageMetricContainer = () => {
     },
   };
 
+  const barmatrixData = [
+      {title: 'Turn efficiency', value: 4},
+      {title: 'Milege', value: 3},
+      {title: 'Deceleration timing', value: 3.5},
+      {title: 'Engine efficiency', value: 5},
+      {title: 'Speed efficiency', value: 4.5},
+    ];
+
   return (
     <View style={styles.mainContainer}>
       <View style={styles.container}>
@@ -68,11 +79,9 @@ const HomePageMetricContainer = () => {
           </CustomText>
         </View>
       </View>
-      <BarMetric />
-      <BarMetric />
-      <BarMetric />
-      <BarMetric />
-      <BarMetric />
+      {barmatrixData.map((item) => {
+        return  <BarMetric data={item} />
+      })}
     </View>
   );
 };
@@ -99,17 +108,18 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   barContainer: {
-    flexDirection: "row",
-    alignItems: "center",
-    marginTop: 10,
-    paddingHorizontal: 20,
+    paddingHorizontal: 16,
+    paddingVertical: 8,
   },
   bar: {
-    flexDirection: "row",
-    alignItems: "center",
-    columnGap: 25,
-    marginLeft: 20,
-    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginTop: 8,
+  },
+  progressBarContainer: {
+    flex: 1, // Allow the progress bar to take up available space
+    marginRight: 8, // Add spacing between progress bar and text
   },
 });
 
