@@ -68,6 +68,61 @@ const Rewards = (props: SvgProps) => (
     />
   </Svg>
 );
+const LeftBackButton = (props:SvgProps) => (
+  <Svg
+    width={20}
+    height={21}
+    fill="none"
+    {...props}
+  >
+    <Path
+      fill="#EBEBEB"
+      d="M13.567 16.768a.624.624 0 1 1-.884.884l-6.25-6.25a.625.625 0 0 1 0-.884l6.25-6.25a.626.626 0 0 1 .884.884L7.76 10.96l5.808 5.808Z"
+    />
+  </Svg>
+)
+
+const VerifyIcon = (props:SvgProps) => (
+  <Svg
+    width={12}
+    height={13}
+    fill="none"
+    {...props}
+  >
+    <Path
+      fill="#63FFB1"
+      d="M6 1.625a4.875 4.875 0 1 0 0 9.75 4.875 4.875 0 0 0 0-9.75ZM8.14 5.64 5.515 8.265a.375.375 0 0 1-.53 0L3.86 7.14a.375.375 0 1 1 .53-.53l.86.86 2.36-2.36a.375.375 0 1 1 .53.53Z"
+    />
+  </Svg>
+)
+const DangerIcon = (props:SvgProps) => (
+  <Svg
+    width={21}
+    height={20}
+    fill="none"
+    {...props}
+  >
+    <Path
+      fill="#CA3A31"
+      d="M10.04 1.875A8.125 8.125 0 1 0 18.163 10a8.134 8.134 0 0 0-8.125-8.125ZM9.413 6.25a.625.625 0 1 1 1.25 0v4.375a.625.625 0 0 1-1.25 0V6.25Zm.625 8.125a.938.938 0 1 1 0-1.875.938.938 0 0 1 0 1.875Z"
+    />
+  </Svg>
+)
+const WarningIcon = (props:SvgProps) => (
+  <Svg
+    width={21}
+    height={20}
+    fill="none"
+    {...props}
+  >
+    <Path
+      fill="#FFDD5C"
+      d="M18.539 14.695 11.707 2.83a1.935 1.935 0 0 0-3.336 0L1.539 14.695a1.836 1.836 0 0 0 0 1.853 1.902 1.902 0 0 0 1.668.952H16.87a1.901 1.901 0 0 0 1.918-1.879c0-.325-.086-.645-.25-.926Zm-9.125-6.57a.625.625 0 0 1 1.25 0v3.125a.625.625 0 1 1-1.25 0V8.125ZM10.039 15a.937.937 0 1 1 0-1.875.937.937 0 0 1 0 1.875Z"
+    />
+  </Svg>
+)
+
+
 
 const ChevronUp = (props: SvgProps) => (
   <Svg width={20} height={21} fill="none" {...props}>
@@ -86,6 +141,10 @@ const SvgIcons = {
   Community,
   Wallet,
   Rewards,
+  LeftBackButton,
+  VerifyIcon,
+  DangerIcon,
+  WarningIcon,
   ChevronUp,
 };
 

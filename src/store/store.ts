@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
-import counterReducer from './slices/counterSlice'; // Import the counter slice
+import homepageReducer from './slices/homeSlice';
+import learnReducer from './slices/learnSlice';
 
 const store = configureStore({
   reducer: {
-    counter: counterReducer, // Add the counter reducer
+    homepage: homepageReducer,
+    learn: learnReducer,
   },
 });
 
